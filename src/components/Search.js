@@ -28,10 +28,8 @@ const Search = () => {
     return (
       <div className="item" key={result.pageid}>
         <div className="content">
-          <div className="header">
-            {result.title}
-          </div>
-          {result.snippet}
+          <div className="header">{result.title}</div>
+          <span dangerouslySetInnerHTML={{ __html: result.snippet}}></span>
         </div>
       </div>)
   })
@@ -53,3 +51,5 @@ const Search = () => {
 }
 
 export default Search;
+
+// dangerouslySetInnerHTML can result in XSS attacks (cross-site scripting)
