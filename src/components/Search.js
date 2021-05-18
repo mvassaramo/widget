@@ -19,9 +19,16 @@ const Search = () => {
 
       setResults(data.query.search)
     }
+
+    const timeoutID = setTimeout(() => {
       if (query) {
         searchWiki()
       }
+    }, 1000)
+
+    return () => {
+      clearInterval(timeoutID)
+    }
   }, [query])
 
   const renderedResults = results.map(result => {
