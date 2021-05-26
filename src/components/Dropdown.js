@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-const DropDown = ({ options, selected, onSelectedChange }) => {
+const DropDown = ({ options, selected, onSelectedChange, placeholder }) => {
   const [open, setOpen] = useState(false)
   const ref = useRef()
 
@@ -36,7 +36,7 @@ const DropDown = ({ options, selected, onSelectedChange }) => {
   return(
     <div ref={ref} className="ui form" >
       <div className="field">
-        <label className="label">Select a colour:</label>
+        <label className="label">{placeholder}</label>
         <div onClick={() => setOpen(!open)} className={`ui selection dropdown ${open ? 'visible active' : ''}`}>
           <i className="dropdown icon"></i>
           <div className="text">{selected.label}</div>
@@ -46,7 +46,7 @@ const DropDown = ({ options, selected, onSelectedChange }) => {
         </div>
       </div>
 
-      <i style={{ color: selected.value }} class="square full icon large"></i>
+      {/* <i style={{ color: selected.value }} class="square full icon large"></i> */}
     </div>
   )
 }
