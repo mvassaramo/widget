@@ -45,6 +45,8 @@ const DropDown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
+
+      <i style={{ color: selected.value }} class="square full icon large"></i>
     </div>
   )
 }
